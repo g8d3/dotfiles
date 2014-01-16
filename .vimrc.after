@@ -1,0 +1,33 @@
+colorscheme railscasts2
+au FocusLost * :wa
+let mapleader = ','
+
+map <leader>f :NERDTreeFind<CR>
+map <leader>, :sp ~/.vimrc.after<CR>
+map <leader>s :sp ~/.janus/mysnippets/snippets<CR>
+map <leader>vo \vo
+map <leader>vv \vv
+map <leader>g :Grep 
+map <leader>gb \gb
+map <leader>gd \gd
+map <leader>gs \gs
+map <silent> <leader>gco :w|Git checkout %<cr><cr>
+map <leader>c :Bonly<CR>
+map ñ /
+map <leader>+ :se nofen<cr>
+map <D-M-Left> <C-o>
+map <D-M-Right> <C-i>
+map <leader>yf :!echo %| pbcopy<cr><cr>
+
+set guifont=Menlo:h16
+
+let g:NERDTreeMouseMode=3
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.hamlc set filetype=haml
+au BufRead,BufNewFile *.ejs so ~/.vim/syntax/jst.vim
+
+" TODO Macros
+
+" Work around FIFO files + NERDTree + Janus bug described:
+" https://github.com/scrooloose/nerdtree/issues/139
+autocmd! AuNERDTreeCmd FocusGained
